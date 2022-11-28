@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Send Email</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
@@ -34,9 +34,16 @@
         display: grid;
         grid-template-rows: auto 1fr auto;
         width: 300px;
+        justify-items: center;
     }
 
     .logo{
+        width: 150px;
+        margin-bottom: 48px;
+        justify-self: center;
+    }
+
+    .iconEmail{
         width: 150px;
         margin-bottom: 48px;
         justify-self: center;
@@ -55,25 +62,18 @@
         margin-top: 0;
         margin-bottom: 32px;
     }
-    
-    .form{
+    .email-image{
         display: flex;
-        flex-direction: column;
-    }
-
-    .label{
-        font-size: var(--sm);
-        font-weight: bold;
-        margin-bottom: 4px;
-    }
-
-    .input{
+        justify-content: center;
+        align-items: center;
+        width: 132px;
+        height: 132px;
+        border-radius: 50%;
         background-color: var(--text-input-field);
-        border: none;
-        border-radius: 4px;
-        height: 32px;
-        font-size: var(--md);
-        padding: 4px;
+        margin-bottom: 24px;
+    }
+    .email-image img{
+        width: 80px;
     }
     .prymary-button{
         background-color: var(--hospital-green);
@@ -91,6 +91,16 @@
         margin-top: 14px;
         margin-bottom: 32px;
     }
+    .resend{
+        font-size: var(--sm);
+    }
+    .resend span{
+        color: var(--very-light-pink);
+    }
+    .resend a{
+        color: var(--hospital-green);
+        text-decoration: none;
+    }
 
     @media (max-width:640px){
         .logo{
@@ -98,23 +108,24 @@
         }
     }
 
+    
+
 </style>
 <body>
     <div class="containerMain">
         <div class="form-container">
             <img src="./images/logos/logo_yard_sale.svg" alt="logo" class="logo">
-            <h1 class="title">Create a new Password</h1>
-            <p class="subtitle">Enter a new Password for you account</p>
-
-            <form action="/" class="form">
-                <label for="password" class="label">Password</label>
-                <input type="password" id="password" placeholder="********" class="input input-password">
-
-                <label for="newpassword" class="label">New Password</label>
-                <input type="password" id="newpassword" placeholder="********" class="input input-password">
+            <h1 class="title">Email has been sent!</h1>
+            <p class="subtitle">Please check your inbox for instructions on how to reset the password</p>
+            <div class="email-image">
+                <img src="./images/icons/email.svg" alt="email">
+            </div>
+            <button class="prymary-button login-button">Login</button>
+            <p class="resend">
+                <span>Don't recived the email?</span>
+                <a href="/">Resend</a>
+            </p>
             
-                <input type="submit" value="confirm" class="prymary-button login-button">
-            </form>
         </div>
     </div>
 </body>
