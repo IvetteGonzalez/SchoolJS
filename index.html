@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Yardsale : JS School</title>
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@300;500;700&display=swap" rel="stylesheet">
 </head>
@@ -15,6 +15,7 @@
         --very-light-pink: #c7c7c7;
         --text-input-field: #f7f7f7;
         --hospital-green: #ACD9B2;
+        --xs:10px;
         --sm:14px;
         --md:16px;
         --lg:18px;
@@ -23,99 +24,453 @@
         font-family: 'Quicksand', sans-serif;
         margin: 0;
     }
-    .containerMain{
-        width: 100%;
-        height: 100vh;
-        display: grid;
-        place-items: center;
+    .icon-menu{
+        display: none;
+        cursor: pointer;
     }
-
-    .form-container{
-        display: grid;
-        grid-template-rows: auto 1fr auto;
-        width: 300px;
+    .navbar-main{
+        display: flex;
+        justify-content: space-between;
+        padding: 0 24px;
+        border-bottom: 1px solid var(--very-light-pink);
     }
-
     .logo{
         width: 150px;
-        margin-bottom: 48px;
-        justify-self: center;
     }
-
-    .title{
-        font-size: var(--lg);
-        margin-bottom: 12px;
-        text-align: center;
+    .navbar-left{
+        display: flex;
     }
-    .subtitle{
-        font-size: var(--md);
-        text-align: center;
-        color: var(--very-light-pink);
-        font-weight: 300;
-        margin-top: 0;
-        margin-bottom: 32px;
+    .navbar-left ul{
+        margin-left: 48px;
     }
     
-    .form{
+    .navbar-left ul,
+    .navbar-right ul{
+        list-style: none;
+        padding: 0;
+        margin:0;
         display: flex;
-        flex-direction: column;
+        align-items: center;
+        height: 60px;
     }
 
-    .label{
-        font-size: var(--sm);
-        font-weight: bold;
-        margin-bottom: 4px;
-    }
-
-    .input{
-        background-color: var(--text-input-field);
-        border: none;
-        border-radius: 4px;
-        height: 32px;
-        font-size: var(--md);
-        padding: 4px;
-    }
-    .prymary-button{
-        background-color: var(--hospital-green);
+    .navbar-left ul a,
+    .navbar-right ul a{
+        text-decoration: none;
+        color: var(--very-light-pink) ;
+        border: 1px solid var(--white);
+        padding: 8px;
         border-radius: 8px;
-        border: none;
-        color: var(--white);
-        width: 100%;
-        height: 44px;
+    }
+
+    .navbar-left ul a:hover,
+    .navbar-right ul a:hover{
+        border: 1px solid var(--hospital-green);    
+        border-radius: 8px;
+    }
+
+    .navbar-email{
+        color: var(--very-light-pink);
+        font-size: var(--sm);
+        margin-right: 12px;
         cursor: pointer;
-        font-size: var(--md);
+    }
+    .navbar-shopping-cart{
+        position: relative;
+    }
+
+    .navbar-shopping-cart div{
+        width: 14px;
+        height: 14px;
+        background-color: var(--hospital-green);
+        border-radius: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: var(--xs);
+        position: absolute;
+        top:-4px;
+        right: -4px;
+    }
+
+    .inactive{
+        display: none;
+    }
+
+    /* Menú WEB */
+    .containerMenu{
+        position: absolute;
+        top: 60px;
+        right: 60px;
+        background: var(--white);
+        width: 100px;
+        height: auto;
+        border: 1px solid var(--very-light-pink);
+        border-radius: 8px;
+        padding: 20px 20px 0px 20px;
+    }
+    .containerMenu ul{
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    .containerMenu ul li{
+        text-align: end;
+    }
+
+    .containerMenu ul li:nth-child(1),
+    .containerMenu ul li:nth-child(2)
+    {
         font-weight: bold;
     }
 
-    .login-button{
-        margin-top: 14px;
-        margin-bottom: 32px;
+    .containerMenu ul li:last-child{
+        padding-top: 24px;
+        border-top: 1px solid var(--very-light-pink);
     }
+    
+    .containerMenu ul li:last-child a{
+        color: var(--hospital-green);
+        font-size: var(--sm);
+    }
+
+    .containerMenu ul li a{
+        color: var(--black);
+        font-size: var(--sm);
+        margin-bottom: 24px;
+        text-decoration: none;
+        display: inline-block;
+    }
+
+    
+    
+    /** Menú Mobile **/
+    .containerMenumobile{
+        position: absolute;
+        top: 60px;
+        padding: 24px;
+
+    }
+
+    .containerMenumobile a{
+      text-decoration: none;
+      color: var(--black);
+      font-weight: bold;
+    }
+    .containerMenumobile ul{
+        list-style: none;
+        padding: 0;
+        margin: 24px 0 0;
+    }
+
+    .containerMenumobile ul {
+      padding: 0;
+      margin: 24px 0 0;
+      list-style: none;
+    }
+    .containerMenumobile ul:nth-child(1) {
+      border-bottom: 1px solid var(--very-light-pink);
+    }
+    .containerMenumobile ul li {
+      margin-bottom: 24px;
+    }
+    .email {
+      font-size: var(--sm);
+      font-weight: 300 !important;
+    }
+    .sign-out {
+      font-size: var(--sm);
+      color: var(--hospital-green) !important;
+    }
+
+    .containerMenumobile ul:nth-child(3) {
+        position: absolute;
+        bottom: 0;
+    }
+
+    /*buy car*/
+    .product-detail {
+      width: 360px;
+      padding: 0 24px;
+      box-sizing: border-box;
+      position: absolute;
+      right: 0;
+    }
+    .title-container {
+      display: flex;
+    }
+    .title-container img {
+      transform: rotate(180deg);
+      margin-right: 14px;
+    }
+    .title {
+      font-size: var(--lg);
+      font-weight: bold;
+    }
+    .order {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      gap: 16px;
+      align-items: center;
+      background-color: var(--text-input-field);
+      margin-bottom: 24px;
+      border-radius: 8px;
+      padding: 0 24px;
+    }
+    .order p:nth-child(1) {
+      display: flex;
+      flex-direction: column;
+    }
+    .order p span:nth-child(1) {
+      font-size: var(--md);
+      font-weight: bold;
+    }
+    .order p:nth-child(2) {
+      text-align: end;
+      font-weight: bold;
+    }
+    .shopping-cart {
+      display: grid;
+      grid-template-columns: auto 1fr auto auto;
+      gap: 16px;
+      margin-bottom: 24px;
+      align-items: center;
+    }
+    .shopping-cart figure {
+      margin: 0;
+    }
+    .shopping-cart figure img {
+      width: 70px;
+      height: 70px;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+    .shopping-cart p:nth-child(2) {
+      color: var(--very-light-pink);
+    }
+    .shopping-cart p:nth-child(3) {
+      font-size: var(--md);
+      font-weight: bold;
+    }
+    .primary-button {
+      background-color: var(--hospital-green);
+      border-radius: 8px;
+      border: none;
+      color: var(--white);
+      width: 100%;
+      cursor: pointer;
+      font-size: var(--md);
+      font-weight: bold;
+      height: 50px;
+    }
+
+    /*Cards Container*/
+    .main-conteiner{
+       margin-top: 20px;
+    }
+
+    .cards-container{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,240px);
+    gap:26px;
+    place-content: center;
+   }
+   .products-card{
+    width: 240px;
+   }
+
+   .products-card img{
+    width: 240px;
+    height: 240px;
+    border-radius: 20px;
+    object-fit: cover;
+   }
+
+   .product-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 12px;
+   }
+
+   .product-info figure{
+     margin: 0;
+   }
+
+   .product-info figure img{
+     width: 35px;
+     height: 35px;
+   }
+
+   .product-info div p:nth-child(1){
+     font-weight: bold;
+     font-size: var(--sm);
+     margin-top: 0px;
+     margin-bottom: 4px;
+   }
+
+   .product-info div p:nth-child(2){
+     font-size: var(--sm);
+     color: var(--very-light-pink);
+     margin-top: 0px;
+     margin-bottom: 0px;
+   }
 
     @media (max-width:640px){
-        .logo{
+       .icon-menu{
+        display: block;
+       }
+       .navbar-left ul,
+       .navbar-email,
+       .containerMenu{
+        display: none;
+       }
+
+       .logo{
             display: block;
         }
+        .cards-container{
+            grid-template-columns: repeat(auto-fill,140px);
+        }
+        .products-card{
+            width: 140px;
+        }
+        .products-card img{
+            width: 140px;
+            height: 140px;
+        }
+    }
+
+    @media (min-width:641px){
+        .containerMenumobile{
+        display: none;
+       }
     }
 
 </style>
 <body>
-    <div class="containerMain">
-        <div class="form-container">
-            <img src="./images/logos/logo_yard_sale.svg" alt="logo" class="logo">
-            <h1 class="title">Create a new Password</h1>
-            <p class="subtitle">Enter a new Password for you account</p>
-
-            <form action="/" class="form">
-                <label for="password" class="label">Password</label>
-                <input type="password" id="password" placeholder="********" class="input input-password">
-
-                <label for="newpassword" class="label">New Password</label>
-                <input type="password" id="newpassword" placeholder="********" class="input input-password">
-            
-                <input type="submit" value="confirm" class="prymary-button login-button">
-            </form>
+    <nav class="navbar-main">
+        <img src="./images/icons/icon_menu.svg" alt="menu" class="icon-menu"/>
+        <div class="navbar-left">
+            <img src="./images/logos/logo_yard_sale.svg" alt="logo" class="logo"/>
+            <ul>
+                <li><a href="/">All</a></li>
+                <li><a href="/">Clothes</a></li>
+                <li><a href="/">Electronics</a></li>
+                <li><a href="/">Furnitures</a></li>
+                <li><a href="/">Toys</a></li>
+                <li><a href="/">Others</a></li>
+            </ul>
         </div>
-    </div>
+        <div class="navbar-right">
+            <ul>
+                <li class="navbar-email">compras@compras.com</li>
+                <li class="navbar-shopping-cart">
+                    <img src="./images/icons/icon_shopping_cart.svg" alt="shoping-cart" />
+                    <div>2</div>
+                </li>
+            </ul>
+        </div>
+
+        <div class="containerMenu inactive">
+            <ul>
+                <li>
+                    <a href="/">My order</a>
+                </li>
+                <li>
+                    <a href="/">
+                        My Account
+                    </a>
+                </li>
+                <li>
+                    <a href="/">Sing out</a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="containerMenumobile inactive">
+            <ul>
+                <li> <a href="/">CATEGORIES</a></li>
+                <li> <a href="/">All</a></li>
+                <li> <a href="/">Clothes</a></li>
+                <li> <a href="/">Electronics</a></li>
+                <li> <a href="/">Furnitures</a></li>
+                <li> <a href="/">Toys</a></li>
+                <li> <a href="/">Others</a></li>
+            </ul>
+            <ul>
+                <li> <a href="/">My orders</a></li>
+                <li> <a href="/">My account</a></li>
+            </ul>
+            <ul>
+                <li> <a href="/" class="email">correo@correo.com</a></li>       
+                <li> <a href="/" class="sign-out">Sing out</a></li>
+            </ul>
+        </div>
+    </nav>
+
+
+    <aside class="product-detail inactive">
+        <div class="title-container">
+        <img src="./images/icons/flechita.svg" alt="arrow">
+        <p class="title">My order</p>
+        </div>
+        <div class="my-order-content">
+        <div class="shopping-cart">
+        <figure>
+        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+        </figure>
+        <p>Bike</p>
+        <p>$30,00</p>
+        <img src="./images/icons/icon_close.png" alt="close">
+        </div>
+        <div class="shopping-cart">
+        <figure>
+        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+        </figure>
+        <p>Bike</p>
+        <p>$30,00</p>
+        <img src="./images/icons/icon_close.png" alt="close">
+        </div>
+        <div class="shopping-cart">
+        <figure>
+        <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt="bike">
+        </figure>
+        <p>Bike</p>
+        <p>$30,00</p>
+        <img src="./images/icons/icon_close.png" alt="close">
+        </div>
+        <div class="order">
+        <p>
+        <span>Total</span>
+        </p>
+        <p>$560.00</p>
+        </div>
+        <button class="primary-button">
+        Checkout
+        </button>
+        </div>
+        </div>
+        </aside>
+    
+    <section class="main-conteiner">
+        <div class="cards-container">
+           <!--<div class="products-card">
+                <img src="https://images.pexels.com/photos/276517/pexels-photo-276517.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" alt=""/>
+                <div class="product-info">
+                    <div>
+                        <p>$120.00</p>
+                        <p>Bike</p>
+                    </div>
+                    <figure>
+                        <img src="./images/icons/bt_add_to_cart.svg" />
+                    </figure>
+                </div>
+            </div>-->
+        </div>
+    </section>
+
+    <script src="./main.js"></script>
 </body>
 </html>
